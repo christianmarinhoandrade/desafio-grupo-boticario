@@ -1,0 +1,14 @@
+import React from 'react'
+import { render, screen } from '@testing-library/react'
+
+import {{pascalCase name}} from '.'
+
+describe('<{{pascalCase name}} />', () => {
+  it('should render hello worl', () => {
+    const { container } = render(<{{pascalCase name}} />)
+
+    expect(screen.getByText('Hello World').toBeInTheDocument()
+
+    expect(container.firstChild).toMatchSnapshot()
+  })
+})
