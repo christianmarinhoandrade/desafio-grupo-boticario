@@ -1,5 +1,5 @@
 export default {
   fontFamily: 'Open Sans',
-  primaryColor: '#000099',
-  secondaryColor: '#000'
+  primaryColor: '#303A3C',
+  secondaryColor: '#F5821F'
 } as const

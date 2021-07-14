@@ -18,13 +18,26 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(css)$/,
+        test: /\.(css|less)$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader
           },
           {
             loader: 'css-loader'
+          },
+          {
+            loader: 'less-loader',
+            options: {
+              lessOptions: {
+                modifyVars: {
+                  'font-family': 'Open Sans',
+                  'primary-color': '#303A3C',
+                  'layout-header-background': '##F5821F'
+                },
+                javascriptEnabled: true
+              }
+            }
           }
         ]
       },

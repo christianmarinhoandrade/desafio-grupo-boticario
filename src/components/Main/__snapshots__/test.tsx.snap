@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`<Main /> should render hello world 1`] = `
-<main
-  class=""
->
-  Hello World
-</main>
-`
