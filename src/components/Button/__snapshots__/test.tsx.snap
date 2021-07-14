@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> should render button default 1`] = `
+.c0 {
+  width: 100%;
+  padding: 0 5px;
+  font-size: 15px;
+}
+
+<button
+  class="ant-btn c0"
+  type="button"
+>
+  <span>
+    Button
+  </span>
+</button>
+`

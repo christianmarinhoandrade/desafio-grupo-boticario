@@ -2,8 +2,11 @@ import HelloWorldContainer from './containers/helloWorld.container'
 
 const routes = [
   {
+    title: 'Hello World',
     name: 'hello.world',
-    path: '/',
+    path: '/teste',
+    routeBack: '/',
+    authenticated: true,
     component: HelloWorldContainer
   }
 ]
