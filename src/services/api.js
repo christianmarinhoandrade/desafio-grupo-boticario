@@ -3,7 +3,7 @@ import notification from '~/components/Notification'
 import { setLoad } from '~/store/spinner/action'
 import store from '~/store'
 
-const baseURL = ''
+const baseURL = 'http://localhost:3000'
 
 const api = axios.create({
   baseURL
@@ -21,8 +21,8 @@ const setLoading = (load) => {
 async function refreshToken() {
   const oldRefreshToken = JSON.parse(localStorage.getItem('@GPB:refresh'))
 
-  const response = await api.post('/user/token/refresh', {
-    refresh: oldRefreshToken
+  const response = await api.post('/refresh-token', {
+    token: oldRefreshToken
   })
 
   const { token, refresh } = response.data
@@ -47,11 +47,15 @@ api.interceptors.request.use((config) => {
 
 api.interceptors.response.use(
   (response) => {
-    setLoading(false)
+    setTimeout(() => {
+      setLoading(false)
+    }, 10000)
     return response
   },
   async (error) => {
-    setLoading(false)
+    setTimeout(() => {
+      setLoading(false)
+    }, 10000)
     const { status, data, config } = error.response
 
     switch (status) {
@@ -59,7 +63,7 @@ api.interceptors.response.use(
         notification.error(data.message)
         break
       case 401:
-        if (config.url === '/user/token/refresh') {
+        if (config.url === '/refresh-token') {
           signOut()
           return
         }

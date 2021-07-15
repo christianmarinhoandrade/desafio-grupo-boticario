@@ -20,7 +20,7 @@ function AuthProvider(props: { children: JSX.Element }) {
   const [storageToken, setStorageToken, removeStorageToken] =
     useLocalStorage('@GPB:token')
 
-  const [storageRefreshToken, setStorageRefresh, removeStorageRefresh] =
+  const [, setStorageRefresh, removeStorageRefresh] =
     useLocalStorage('@GPB:refresh')
 
   const [user, setUser] = useState(
