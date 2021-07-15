@@ -1,11 +1,17 @@
 /* eslint-disable */
-import React, { createContext, useCallback, useState } from 'react'
+import { createContext, useCallback, useState } from 'react'
 import useLocalStorage from '~/hooks/useLocalStorage'
 import services from '~/pages/login/login.services'
+import { LoginForm } from '~/pages/login/components/login-form.component'
+type AuthContextProps = {
+  signed: boolean
+  user?: { username: string }
+  signIn: (values: LoginForm) => void
+  signOut: () => void
+}
+const AuthContext = createContext<AuthContextProps>({} as AuthContextProps)
 
-const AuthContext = createContext()
-
-function AuthProvider(props) {
+function AuthProvider(props: { children: JSX.Element }) {
   const { children } = props
 
   const [storageUser, setStorageUser, removeStorageUser] =
@@ -23,13 +29,12 @@ function AuthProvider(props) {
 
 
   const signIn = useCallback(
-    async (values) => {
+    async (values: LoginForm) => {
 
       try {
         const response = await services.login(values)
 
         const { username, token, refreshtoken } = response.data
-        setLoading(false)
 
         setUser({ username })
         setStorageUser({ username })
@@ -55,6 +60,7 @@ function AuthProvider(props) {
   ])
 
   return (
+
     <AuthContext.Provider
       value={{
         signed: !!user?.username,
