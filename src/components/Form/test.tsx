@@ -8,7 +8,7 @@ import { Input } from 'antd'
 describe('<Form />', () => {
   it('should render form default', () => {
     const { container } = render(
-      <Form>
+      <Form id="form-test">
         <FormItem>
           <Input />
         </FormItem>
@@ -68,7 +68,7 @@ describe('<Form />', () => {
           <form
             class="ant-form ant-form-vertical c0"
             flexdirection="row"
-            id="form-filter"
+            id="form-test"
             justifycontent="center"
           >
             <div

@@ -15,7 +15,7 @@ function signOut() {
   notification.warning('Sesssão expirada.')
 }
 
-let setLoading = (load) => {
+const setLoading = (load) => {
   store.dispatch(setLoad(load))
 }
 async function refreshToken() {

@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Menu /> should render menu default 1`] = `
+.c0 {
+  width: 100%;
+}
+
+<ul
+  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light c0"
+  data-menu-list="true"
+  data-testid="menu-id"
+  role="menu"
+  tabindex="0"
+>
+  <li
+    class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+    data-menu-id="rc-menu-uuid-test-revendedor-inclusao"
+    data-testid="menu-item-id"
+    role="menuitem"
+    style="opacity: 1; order: 0;"
+    tabindex="-1"
+  >
+    <span
+      class="ant-menu-title-content"
+    >
+      Cadastro Revendedor
+    </span>
+  </li>
+  <li
+    class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+    data-testid="menu-item-id"
+    role="menuitem"
+    style="opacity: 1; order: 1;"
+    tabindex="-1"
+  >
+    <span
+      class="ant-menu-title-content"
+    >
+      Cadastro Compras
+    </span>
+  </li>
+  <li
+    aria-hidden="true"
+    class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
+    role="none"
+    style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
+  >
+    <div
+      aria-controls="rc-menu-uuid-test-rc-menu-more-popup"
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="ant-menu-submenu-title"
+      data-menu-id="rc-menu-uuid-test-rc-menu-more"
+      role="menuitem"
+      tabindex="-1"
+    >
+      <span
+        aria-label="ellipsis"
+        class="anticon anticon-ellipsis"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="ellipsis"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+          />
+        </svg>
+      </span>
+      <i
+        class="ant-menu-submenu-arrow"
+      />
+    </div>
+  </li>
+</ul>
+`

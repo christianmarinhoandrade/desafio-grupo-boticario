@@ -4,6 +4,7 @@ import * as S from './styles'
 export type FormProps = {
   justifycontent?: 'start' | 'center' | 'space-between' | 'space-arou'
   flexdirection?: 'column' | 'row'
+  id: string
 } & FormPropsAntd
 
 function Form({
@@ -12,11 +13,12 @@ function Form({
   flexdirection = 'row',
   children,
   onFinish,
+  id,
   ...props
 }: FormProps) {
   return (
     <S.Form
-      id="form-filter"
+      id={id}
       layout="vertical"
       form={form}
       justifycontent={justifycontent}

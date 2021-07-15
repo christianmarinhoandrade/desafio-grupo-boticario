@@ -1,9 +1,7 @@
-import React from 'react'
-
 import { Row, Col, Input } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
 
-import FormShared from '~/components/Form'
+import Form from '~/components/Form'
 import FormItem from '~/components/FormItem'
 import Button from '~/components/Button'
 
@@ -18,7 +16,8 @@ function LoginFormComponent(props: LoginProps) {
   const rules = [{ required: true }]
 
   return (
-    <FormShared
+    <Form
+      id="form-login"
       name="login"
       onFinish={onFinish}
       flexdirection={'column'}
@@ -50,7 +49,7 @@ function LoginFormComponent(props: LoginProps) {
           </Button>
         </Col>
       </Row>
-    </FormShared>
+    </Form>
   )
 }
 

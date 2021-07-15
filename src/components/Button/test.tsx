@@ -1,7 +1,7 @@
 import { render, screen, waitFor } from '@testing-library/react'
-import { UsergroupAddOutlined } from '@ant-design/icons'
 import userEvent from '@testing-library/user-event'
 
+import { UsergroupAddOutlined } from '@ant-design/icons'
 import Button from '.'
 
 describe('<Button />', () => {

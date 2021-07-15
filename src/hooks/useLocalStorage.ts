@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect, useCallback } from 'react'
 
-function useLocalStorage(key, defaultValue = null) {
+function useLocalStorage(key: string, defaultValue = null) {
   const [value, setValue] = useState(() => {
     const storagedValue = localStorage.getItem(key)
     return storagedValue ? JSON.parse(storagedValue) : null
@@ -26,7 +27,7 @@ function useLocalStorage(key, defaultValue = null) {
     setValue(null)
   }, [key])
 
-  return [value, (newValue) => updateValue(newValue), () => removeValue()]
+  return [value, (newValue: any) => updateValue(newValue), () => removeValue()]
 }
 
 export default useLocalStorage
