@@ -2,7 +2,8 @@ const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-
+const primayColor = '#303A3C'
+const secondaryColor = '#F5821F'
 module.exports = {
   entry: path.resolve(__dirname, 'src', 'index.tsx'),
   output: {
@@ -32,8 +33,8 @@ module.exports = {
               lessOptions: {
                 modifyVars: {
                   'font-family': 'Open Sans',
-                  'primary-color': '#303A3C',
-                  'layout-header-background': '##F5821F'
+                  'primary-color': primayColor,
+                  'layout-header-background': secondaryColor
                 },
                 javascriptEnabled: true
               }

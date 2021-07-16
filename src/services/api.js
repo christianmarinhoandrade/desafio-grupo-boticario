@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 import axios from 'axios'
 import notification from '~/components/Notification'
 import { setLoad } from '~/store/spinner/action'
@@ -10,27 +11,36 @@ const api = axios.create({
 })
 
 function signOut() {
-  localStorage.clear()
-  window.location.href = '/'
   notification.warning('Sesssão expirada.')
+  setLoading(true)
+  setTimeout(() => {
+    localStorage.clear()
+    window.location.href = '/'
+    setLoading(false)
+  }, 1000)
 }
 
 const setLoading = (load) => {
   store.dispatch(setLoad(load))
 }
-async function refreshToken() {
+async function refreshToken(error) {
   const oldRefreshToken = JSON.parse(localStorage.getItem('@GPB:refresh'))
 
   const response = await api.post('/refresh-token', {
-    token: oldRefreshToken
+    refreshtoken: oldRefreshToken
   })
 
-  const { token, refresh } = response.data
+  const token = response?.data?.token
+  const refresh = response?.data?.refreshtoken
 
-  localStorage.setItem('@GPB:token', JSON.stringify(token))
-  localStorage.setItem('@GPB:refresh', JSON.stringify(refresh))
+  if (token && refresh) {
+    localStorage.setItem('@GPB:token', JSON.stringify(token))
+    localStorage.setItem('@GPB:refresh', JSON.stringify(refresh))
 
-  return null
+    // eslint-disable-next-line consistent-return
+    return api.request(error.response.config)
+  }
+  return Promise.reject(error)
 }
 
 api.interceptors.request.use((config) => {
@@ -47,16 +57,14 @@ api.interceptors.request.use((config) => {
 
 api.interceptors.response.use(
   (response) => {
-    setTimeout(() => {
-      setLoading(false)
-    }, 10000)
+    setLoading(false)
     return response
   },
   async (error) => {
-    setTimeout(() => {
-      setLoading(false)
-    }, 10000)
-    const { status, data, config } = error.response
+    setLoading(false)
+    const status = error?.response?.status
+    const data = error?.response?.data
+    const config = error?.response?.config
 
     switch (status) {
       case 400:
@@ -67,9 +75,7 @@ api.interceptors.response.use(
           signOut()
           return
         }
-        await refreshToken()
-        // eslint-disable-next-line consistent-return
-        return api.request(config)
+        return await refreshToken(error)
       case 403:
         notification.error('Usuário não possui acesso a esse recurso.')
         break

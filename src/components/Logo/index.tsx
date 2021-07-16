@@ -1,11 +1,14 @@
-import { Image, ImageProps } from 'antd'
+import { ImageProps as ImagePropsAntd } from 'antd'
 
 import grupoBoticario from '@/img/logo-grupo-boticario.png'
+import { Image } from './styles'
 
+export type ImageProps = { cursor?: string } & ImagePropsAntd
 function Logo({
   width,
   height,
   preview = false,
+  cursor,
   id,
   src,
   ...props
@@ -19,6 +22,7 @@ function Logo({
       width={width}
       height={height}
       preview={preview}
+      cursor={cursor}
       alt="Grupo Boticário"
       {...props}
     />

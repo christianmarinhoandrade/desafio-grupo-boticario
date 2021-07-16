@@ -36,18 +36,11 @@ function Route(props: RouteMergeProps) {
       exact
       render={() => (
         <>
-          {spinner && (
-            <Spin tip="Carregando...">
-              <Layout title={title} routeBack={routeBack}>
-                <Component />
-              </Layout>
-            </Spin>
-          )}
-          {!spinner && (
+          <Spin spinning={spinner} tip="Carregando...">
             <Layout title={title} routeBack={routeBack}>
               <Component />
             </Layout>
-          )}
+          </Spin>
         </>
       )}
     />

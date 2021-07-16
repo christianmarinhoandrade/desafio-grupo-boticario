@@ -7,7 +7,7 @@ exports[`<DropdownAvatar /> should render dropdown default 1`] = `
 }
 
 <span
-  class="ant-avatar ant-avatar-circle ant-avatar-icon c0 ant-dropdown-trigger"
+  class="ant-avatar ant-avatar-circle ant-avatar-icon c0 ant-dropdown-trigger "
 >
   <span
     aria-label="user"

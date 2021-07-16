@@ -8,11 +8,7 @@ describe('<Button />', () => {
   it('should render button default', () => {
     const { container } = render(<Button>Button</Button>)
 
-    expect(screen.getByRole('button', { name: /button/i })).toHaveStyle({
-      padding: '0 5px',
-      'font-size': '15px'
-    })
-
+    expect(screen.getByRole('button', { name: /button/i })).toBeInTheDocument()
     expect(container.firstChild).toMatchSnapshot()
   })
 
@@ -34,19 +30,6 @@ describe('<Button />', () => {
     expect(screen.getByRole('button', { name: /button/i })).toHaveClass(
       'ant-btn-primary'
     )
-  })
-
-  it('should render button with width and height', () => {
-    render(
-      <Button width="100px" height="100px">
-        Button
-      </Button>
-    )
-
-    expect(screen.getByRole('button', { name: /button/i })).toHaveStyle({
-      width: '100px',
-      height: '100px'
-    })
   })
 
   it('should render button with icon', () => {
