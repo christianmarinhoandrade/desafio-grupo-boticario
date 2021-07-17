@@ -3,6 +3,7 @@
 exports[`<Menu /> should render menu default 1`] = `
 .c0 {
   width: 100%;
+  border-bottom: 0px;
 }
 
 <ul

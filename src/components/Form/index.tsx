@@ -24,6 +24,7 @@ function Form({
       justifycontent={justifycontent}
       flexdirection={flexdirection}
       onFinish={onFinish}
+      size={'large'}
       {...props}
     >
       {children}

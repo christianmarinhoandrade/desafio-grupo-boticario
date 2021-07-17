@@ -42,7 +42,7 @@ function DefaultContainer({
   const screen = useBreakpoint()
   const { md } = screen
 
-  let mobile = false
+  let mobile: boolean
   if (!isDesktop) mobile = md ? false : true
   else mobile = false
 
@@ -60,9 +60,9 @@ function DefaultContainer({
   /* MENU */
   const menu = [
     {
-      title: 'teste',
-      path: '/teste',
-      name: 'teste'
+      title: 'Cadastro Revendedor',
+      path: '/cadastro-revendedor',
+      name: 'cadastro.revendedor'
     }
   ]
 
@@ -79,7 +79,7 @@ function DefaultContainer({
         {!mobile && (
           <DropdownAvatar
             username={auth.user?.username.toUpperCase()}
-            signOut={auth.signOut}
+            signOut={auth.signOut!}
           />
         )}
       </StyledActionsBarContent>
@@ -102,7 +102,11 @@ function DefaultContainer({
         <>
           {!mobile && (
             <>
-              <Logo width={70} onClick={() => history.push('/home')} />
+              <Logo
+                width={90}
+                cursor={'pointer'}
+                onClick={() => history.push('/home')}
+              />
               <Menu
                 menu={menu}
                 signOut={auth.signOut!}
@@ -117,7 +121,7 @@ function DefaultContainer({
       </Header>
 
       <StyledContent>
-        <StyledContentWrapper mobile={md ? false : true}>
+        <StyledContentWrapper>
           {mobile && routeBack && (
             <ArrowLeftOutlined
               style={{ fontSize: '20px' }}

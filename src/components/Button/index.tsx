@@ -1,21 +1,8 @@
-import { ButtonProps as ButtonPropsAntd } from 'antd'
+import { ButtonProps } from 'antd'
 
 import * as S from './styles'
 
-export type ButtonProps = {
-  width?: string
-  height?: string
-} & ButtonPropsAntd
-
-const Button = ({
-  type,
-  onClick,
-  id,
-  icon,
-  width,
-  height,
-  ...props
-}: ButtonProps) => {
+const Button = ({ type, onClick, id, icon, ...props }: ButtonProps) => {
   return (
     <>
       <S.Btn
@@ -25,8 +12,6 @@ const Button = ({
         }}
         id={id}
         icon={icon}
-        width={width}
-        height={height}
         {...props}
       />
     </>

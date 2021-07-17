@@ -1,7 +1,5 @@
-import { Drawer, Image } from 'antd'
-import { TitleContent } from './styles'
-
-import grupoBoticario from '@/img/logo-grupo-boticario.png'
+import { TitleContent, Drawer } from './styles'
+import Logo from '../Logo'
 
 export type DrawerMobileProps = {
   children: JSX.Element
@@ -13,12 +11,7 @@ const DrawerMobile = ({ children, setVisible, visible }: DrawerMobileProps) => {
     <Drawer
       title={
         <TitleContent>
-          <Image
-            src={grupoBoticario}
-            width={100}
-            preview={false}
-            alt="Grupo Boticário"
-          />
+          <Logo width={100} />
         </TitleContent>
       }
       placement="left"

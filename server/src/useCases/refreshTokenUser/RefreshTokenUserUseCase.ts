@@ -5,9 +5,9 @@ class RefreshTokenUserUseCase {
     const generateTokenProvider = new GenerateTokenProvider()
 
     const token = await generateTokenProvider.execute()
-    const refresh = await generateTokenProvider.execute('40s')
+    const refreshtoken = await generateTokenProvider.execute('1m')
 
-    return { token, refresh }
+    return { token, refreshtoken }
   }
 }
 

@@ -1,4 +1,4 @@
-import { Dropdown } from 'antd'
+import {} from 'antd'
 import { UserOutlined } from '@ant-design/icons'
 
 import { Menu } from '../Menu/styles'
@@ -13,15 +13,21 @@ const DropdownAvatar = ({
   const userMenu = (
     <Menu>
       <Menu.ItemGroup title={`Ola ${username}`}>
-        <Menu.Item onClick={() => signOut}>Sair</Menu.Item>
+        <Menu.Item
+          onClick={() => {
+            if (signOut) signOut()
+          }}
+        >
+          Sair
+        </Menu.Item>
       </Menu.ItemGroup>
     </Menu>
   )
 
   return (
-    <Dropdown overlay={userMenu} {...props}>
+    <S.Dropdown overlay={userMenu} {...props}>
       <S.Avatar icon={<UserOutlined />} />
-    </Dropdown>
+    </S.Dropdown>
   )
 }
 

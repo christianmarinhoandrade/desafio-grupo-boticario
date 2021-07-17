@@ -35,38 +35,12 @@ describe('<Form />', () => {
         -webkit-flex-direction: row;
         -ms-flex-direction: row;
         flex-direction: row;
-        gap: 10px;
-        padding: 2px;
-      }
-
-      .c0 .ant-form-item {
-        margin-bottom: 0px;
-      }
-
-      .c0 .ant-select-single.ant-select-show-arrow .ant-select-selection-item,
-      .c0 .ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder {
-        padding-top: 4px;
-      }
-
-      .c0 .ant-select:not(.ant-select-customize-input) .ant-select-selector .ant-select-selection-search-input {
-        margin-top: 3px;
-      }
-
-      .c0 .ant-select:not(.ant-select-customize-input) .ant-select-selector,
-      .c0 input.ant-input {
-        border-radius: 10px;
-        height: 40px;
-      }
-
-      .c0 .ant-input-affix-wrapper {
-        border-radius: 10px;
-        height: 50px;
       }
 
       <body>
         <div>
           <form
-            class="ant-form ant-form-vertical c0"
+            class="ant-form ant-form-vertical ant-form-large c0"
             flexdirection="row"
             id="form-test"
             justifycontent="center"
@@ -84,7 +58,7 @@ describe('<Form />', () => {
                     class="ant-form-item-control-input-content"
                   >
                     <input
-                      class="ant-input"
+                      class="ant-input ant-input-lg"
                       type="text"
                       value=""
                     />

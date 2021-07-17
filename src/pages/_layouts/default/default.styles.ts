@@ -4,10 +4,6 @@ import styled from 'styled-components'
 const { Title } = Typography
 const { Content } = Layout
 
-type DefaultStyleProps = {
-  mobile: boolean
-}
-
 const StyledLayout = styled(Layout)`
   min-height: 100vh;
 `
@@ -27,14 +23,10 @@ const StyledContent = styled(Content)`
   }
 `
 const StyledContentWrapper = styled.div`
-  margin-top: ${(props: DefaultStyleProps) => (!props.mobile ? '10px' : '')};
+  margin-top: 10px;
   padding: 24px;
   min-width: 240px;
   background-color: #fff;
-
-  @media (max-width: 767px) {
-    padding: 5px;
-  }
 `
 const StyledActionsBarContent = styled.div`
   display: flex;
