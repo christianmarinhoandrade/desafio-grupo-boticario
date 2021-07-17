@@ -12,7 +12,7 @@ const StyledTypography = styled(Typography)`
 `
 
 const StyledContent = styled(Content)`
-  padding: 0 50px;
+  width: 100%;
 
   @media (max-width: 767px) {
     padding: 0 10px;
@@ -21,9 +21,11 @@ const StyledContent = styled(Content)`
 type ContentWrapper = { backgroundcolor: string }
 const StyledContentWrapper = styled.div<ContentWrapper>`
   ${({ backgroundcolor }) => css`
-    margin-top: 10px;
+    margin: 10px auto;
     padding: 24px;
+    width: 100%;
     min-width: 240px;
+    max-width: 1300px;
     background-color: ${backgroundcolor};
   `}
 `

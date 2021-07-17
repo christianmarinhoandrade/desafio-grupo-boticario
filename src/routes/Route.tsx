@@ -33,7 +33,6 @@ function Route(props: RouteMergeProps) {
   return (
     <ReactRoute
       path={path}
-      exact
       render={() => (
         <>
           <Spin spinning={load} tip="Carregando...">

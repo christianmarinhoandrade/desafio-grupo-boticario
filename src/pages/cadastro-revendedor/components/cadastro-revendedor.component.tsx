@@ -13,11 +13,11 @@ export type CadastroRevendedorForm = {
   email: string
 }
 
-type LoginProps = {
+type CadastroRevendedorFormProps = {
   onSubmit: (values: CadastroRevendedorForm) => void
   form?: FormInstance
 }
-function CadastroRevendedorFormComponent(props: LoginProps) {
+function CadastroRevendedorFormComponent(props: CadastroRevendedorFormProps) {
   const TitleAntd = Typography.Title
   const { onSubmit: onFinish, form } = props
 
