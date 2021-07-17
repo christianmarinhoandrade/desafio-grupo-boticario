@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react'
 import api from '../compras-list.services'
 
 import ComprasListComponent, {
-  Data
+  Data,
+  ArrayProps
 } from '../components/compras-list.component' //Data
 
 function ComprasListContainer() {
-  const [data, setData] = useState<Data>({} as Data)
+  const [data, setData] = useState<Data>({ array: [] as ArrayProps[] } as Data)
   useEffect(() => {
     const getData = async () => {
       try {

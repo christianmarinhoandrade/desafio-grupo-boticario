@@ -15,6 +15,8 @@ import {
 } from '../styles'
 import { Empty, Typography } from 'antd'
 
+import priceMask from '~/utils/price-mask'
+
 type ComprasListProps = {
   data: Data
 }
@@ -24,12 +26,14 @@ export type Data = {
 }
 
 export type ArrayProps = {
+  id: number
   code: string
   status: 'Em validação' | 'Reprovado' | 'Aprovado'
-  value: string
+  value: number
   date: string
   cashback: string
   valuecashback: number
+  'data-testid'?: string
 }
 
 function ComprasListComponent({ data }: ComprasListProps) {
@@ -43,50 +47,66 @@ function ComprasListComponent({ data }: ComprasListProps) {
           <TextAccumulatedCashbackAmount>
             Valor de cashback acumulado:
           </TextAccumulatedCashbackAmount>
-          <Value>R${data.accumulatedCashbackAmount},00</Value>
+          <Value>
+            {data.accumulatedCashbackAmount &&
+              priceMask(data.accumulatedCashbackAmount)}
+          </Value>
         </AccumulatedCashbackAmount>
       </HeaderWrapper>
       <>
-        {data.array?.map((item) => {
-          return (
-            <Item key={item.code}>
-              <Title>
-                <Code>{item.code}</Code>
-                <Status
-                  color={
-                    item.status === 'Aprovado'
-                      ? 'green'
-                      : item.status === 'Reprovado'
-                      ? 'red'
-                      : ''
-                  }
-                >
-                  {item.status}
-                </Status>
-              </Title>
-              <ItemWrapper>
-                <ItemColumn>
-                  <Header>Valor</Header>
-                  <Content>{item.value}</Content>
-                </ItemColumn>
-                <ItemColumn>
-                  <Header>Data</Header>
-                  <Content>{item.date}</Content>
-                </ItemColumn>
-                <ItemColumn>
-                  <Header>Cashback</Header>
-                  <Content>{item.cashback}</Content>
-                </ItemColumn>
-                <ItemColumn>
-                  <Header>Valor Cashback</Header>
-                  <Content>R${item.valuecashback}</Content>
-                </ItemColumn>
-              </ItemWrapper>
-            </Item>
-          )
-        })}
+        {data?.array?.map(
+          ({
+            code,
+            status,
+            value,
+            date,
+            cashback,
+            valuecashback,
+            id,
+            ...props
+          }) => {
+            return (
+              <Item key={id} {...props}>
+                <Title>
+                  <Code>{code}</Code>
+                  <Status
+                    color={
+                      status === 'Aprovado'
+                        ? 'green'
+                        : status === 'Reprovado'
+                        ? 'red'
+                        : ''
+                    }
+                  >
+                    {status}
+                  </Status>
+                </Title>
+                <ItemWrapper>
+                  <ItemColumn>
+                    <Header>Valor</Header>
+                    <Content>{value && priceMask(value)}</Content>
+                  </ItemColumn>
+                  <ItemColumn>
+                    <Header>Data</Header>
+                    <Content>{date}</Content>
+                  </ItemColumn>
+                  <ItemColumn>
+                    <Header>Cashback</Header>
+                    <Content>{cashback}</Content>
+                  </ItemColumn>
+                  <ItemColumn>
+                    <Header>Valor Cashback</Header>
+                    <Content>
+                      {valuecashback && priceMask(valuecashback)}
+                    </Content>
+                  </ItemColumn>
+                </ItemWrapper>
+              </Item>
+            )
+          }
+        )}
       </>
-      {data.array?.length === 0 && (
+      {data.array.length === 0 && (
         <Empty
           style={{ padding: '5px' }}
           description={<Text>Nenhum registro encontrado.</Text>}
