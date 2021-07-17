@@ -10,9 +10,9 @@ import { Spin } from 'antd'
 import useAuth from '~/hooks/useAuth'
 
 function Route(props: RouteMergeProps) {
-  const { component, path, routeBack, title, authenticated, location } = props
+  const { component, path, routeBack, authenticated, location, list } = props
   const Component = component as React.ElementType
-  const spinner = useSelector(spinnerSelector)
+  const load = useSelector(spinnerSelector)
 
   const auth = useAuth()
 
@@ -23,10 +23,10 @@ function Route(props: RouteMergeProps) {
   if (!isSigned && authenticated) {
     return <Redirect to="/login" />
   } else if (isSigned && !authenticated) {
-    return <Redirect to="/home" />
+    return <Redirect to="/compras-list" />
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   } else if (isSigned && authenticated && location!.pathname === '/')
-    return <Redirect to="/home" />
+    return <Redirect to="/compras-list" />
 
   const Layout = isSigned ? DefaultLayout : AuthLayout
 
@@ -36,8 +36,8 @@ function Route(props: RouteMergeProps) {
       exact
       render={() => (
         <>
-          <Spin spinning={spinner} tip="Carregando...">
-            <Layout title={title} routeBack={routeBack}>
+          <Spin spinning={load} tip="Carregando...">
+            <Layout routeBack={routeBack} list={list}>
               <Component />
             </Layout>
           </Spin>

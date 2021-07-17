@@ -12,11 +12,11 @@ function Routes() {
       {routes.map((route: RouteMergeProps) => (
         <Route
           key={route.name}
-          title={route.title}
           routeBack={route.routeBack}
           authenticated={route.authenticated}
           path={route.path}
           component={route.component}
+          list={route.list}
           exact
         />
       ))}

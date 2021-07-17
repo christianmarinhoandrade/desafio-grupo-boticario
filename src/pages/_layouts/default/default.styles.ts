@@ -1,7 +1,6 @@
 import { Layout, Typography } from 'antd'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
-const { Title } = Typography
 const { Content } = Layout
 
 const StyledLayout = styled(Layout)`
@@ -11,10 +10,7 @@ const StyledTypography = styled(Typography)`
   margin-left: 5px;
   color: #fff;
 `
-const StyledTitle = styled(Title)`
-  width: 80%;
-  padding: 10px;
-`
+
 const StyledContent = styled(Content)`
   padding: 0 50px;
 
@@ -22,11 +18,14 @@ const StyledContent = styled(Content)`
     padding: 0 10px;
   }
 `
-const StyledContentWrapper = styled.div`
-  margin-top: 10px;
-  padding: 24px;
-  min-width: 240px;
-  background-color: #fff;
+type ContentWrapper = { backgroundcolor: string }
+const StyledContentWrapper = styled.div<ContentWrapper>`
+  ${({ backgroundcolor }) => css`
+    margin-top: 10px;
+    padding: 24px;
+    min-width: 240px;
+    background-color: ${backgroundcolor};
+  `}
 `
 const StyledActionsBarContent = styled.div`
   display: flex;
@@ -39,6 +38,5 @@ export {
   StyledContent,
   StyledContentWrapper,
   StyledTypography,
-  StyledTitle,
   StyledActionsBarContent
 }

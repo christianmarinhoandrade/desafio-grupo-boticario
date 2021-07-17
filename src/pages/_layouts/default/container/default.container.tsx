@@ -19,20 +19,19 @@ import {
   StyledLayout,
   StyledContent,
   StyledContentWrapper,
-  StyledTitle,
   StyledActionsBarContent
 } from '../default.styles'
 
 type DefaultProps = {
   routeBack?: string
-  title?: string
   children: JSX.Element
+  list?: boolean
   isDesktop?: boolean
 }
 
 function DefaultContainer({
   routeBack,
-  title,
+  list,
   children,
   isDesktop
 }: DefaultProps) {
@@ -63,6 +62,11 @@ function DefaultContainer({
       title: 'Cadastro Revendedor',
       path: '/cadastro-revendedor',
       name: 'cadastro.revendedor'
+    },
+    {
+      title: 'Compras',
+      path: '/compras-list',
+      name: 'compras.list'
     }
   ]
 
@@ -105,7 +109,7 @@ function DefaultContainer({
               <Logo
                 width={90}
                 cursor={'pointer'}
-                onClick={() => history.push('/home')}
+                onClick={() => history.push('/compras-list')}
               />
               <Menu
                 menu={menu}
@@ -121,14 +125,13 @@ function DefaultContainer({
       </Header>
 
       <StyledContent>
-        <StyledContentWrapper>
+        <StyledContentWrapper backgroundcolor={list ? '#f0f2f5' : '#fff'}>
           {mobile && routeBack && (
             <ArrowLeftOutlined
               style={{ fontSize: '20px' }}
               onClick={() => history.push(routeBack)}
             />
           )}
-          <StyledTitle level={4}>{title}</StyledTitle>
           {children}
         </StyledContentWrapper>
       </StyledContent>

@@ -4,8 +4,8 @@ const routesContext = require.context('../pages', true, /.routes./)
 export type RouteMergeProps = {
   name?: string
   routeBack?: string
-  title?: string
   path?: string
+  list?: boolean
   authenticated: boolean | undefined
 } & RouteProps
 const routes: RouteMergeProps[] = []

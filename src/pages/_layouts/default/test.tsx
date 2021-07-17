@@ -78,13 +78,12 @@ describe('<DefaultContainer />', () => {
     expect(screen.queryByRole('img')).not.toBeInTheDocument()
   })
 
-  it('should render default container with title and routeback', () => {
+  it('should render default container with routeback', () => {
     render(
-      <DefaultContainer title="Cadastro Compras" routeBack="/compra">
+      <DefaultContainer routeBack="/compra">
         <div></div>
       </DefaultContainer>
     )
-    expect(screen.getByText('Cadastro Compras')).toBeInTheDocument()
     expect(screen.getByRole('img')).toHaveClass('anticon-arrow-left')
   })
 })
