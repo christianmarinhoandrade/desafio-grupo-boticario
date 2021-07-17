@@ -12,7 +12,6 @@ function Routes() {
       {routes.map((route: RouteMergeProps) => (
         <Route
           key={route.name}
-          routeBack={route.routeBack}
           authenticated={route.authenticated}
           path={route.path}
           component={route.component}

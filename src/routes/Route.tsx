@@ -10,7 +10,7 @@ import { Spin } from 'antd'
 import useAuth from '~/hooks/useAuth'
 
 function Route(props: RouteMergeProps) {
-  const { component, path, routeBack, authenticated, location, list } = props
+  const { component, path, authenticated, location, list } = props
   const Component = component as React.ElementType
   const load = useSelector(spinnerSelector)
 
@@ -37,7 +37,7 @@ function Route(props: RouteMergeProps) {
       render={() => (
         <>
           <Spin spinning={load} tip="Carregando...">
-            <Layout routeBack={routeBack} list={list}>
+            <Layout list={list}>
               <Component />
             </Layout>
           </Spin>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import api from '../compras.services'
+import api from '../compras-list.services'
 
 import ComprasListComponent, {
   Data

@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
 import { Grid } from 'antd'
-import { ArrowLeftOutlined } from '@ant-design/icons'
 
 import Logo from '~/components/Logo'
 import Footer from '~/components/Footer'
@@ -23,18 +22,12 @@ import {
 } from '../default.styles'
 
 type DefaultProps = {
-  routeBack?: string
   children: JSX.Element
   list?: boolean
   isDesktop?: boolean
 }
 
-function DefaultContainer({
-  routeBack,
-  list,
-  children,
-  isDesktop
-}: DefaultProps) {
+function DefaultContainer({ list, children, isDesktop }: DefaultProps) {
   const auth = useAuth()
 
   const { useBreakpoint } = Grid
@@ -59,14 +52,19 @@ function DefaultContainer({
   /* MENU */
   const menu = [
     {
+      title: 'Lista de Compras',
+      path: '/compras-list',
+      name: 'compras.list'
+    },
+    {
+      title: 'Cadastro Compras',
+      path: '/cadastro-compras',
+      name: 'cadastro.compras'
+    },
+    {
       title: 'Cadastro Revendedor',
       path: '/cadastro-revendedor',
       name: 'cadastro.revendedor'
-    },
-    {
-      title: 'Compras',
-      path: '/compras-list',
-      name: 'compras.list'
     }
   ]
 
@@ -126,12 +124,6 @@ function DefaultContainer({
 
       <StyledContent>
         <StyledContentWrapper backgroundcolor={list ? '#f0f2f5' : '#fff'}>
-          {mobile && routeBack && (
-            <ArrowLeftOutlined
-              style={{ fontSize: '20px' }}
-              onClick={() => history.push(routeBack)}
-            />
-          )}
           {children}
         </StyledContentWrapper>
       </StyledContent>

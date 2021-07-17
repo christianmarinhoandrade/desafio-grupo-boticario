@@ -58,8 +58,6 @@ describe('<DefaultContainer />', () => {
     expect(screen.getByTestId('Mock Menu')).toBeInTheDocument()
     expect(screen.getByTestId('Mock ButtonDrawer')).toBeInTheDocument()
     expect(screen.getByTestId('Mock Footer')).toBeInTheDocument()
-    expect(screen.queryByText('Cadastro Compras')).not.toBeInTheDocument()
-    expect(screen.queryByRole('img')).not.toBeInTheDocument()
   })
 
   it('should render default container in mode desktop', () => {
@@ -74,16 +72,5 @@ describe('<DefaultContainer />', () => {
     expect(screen.getByTestId('Mock Logo')).toBeInTheDocument()
     expect(screen.getByTestId('Mock DropdownAvatar')).toBeInTheDocument()
     expect(screen.getByTestId('Mock Footer')).toBeInTheDocument()
-    expect(screen.queryByText('Cadastro Compras')).not.toBeInTheDocument()
-    expect(screen.queryByRole('img')).not.toBeInTheDocument()
-  })
-
-  it('should render default container with routeback', () => {
-    render(
-      <DefaultContainer routeBack="/compra">
-        <div></div>
-      </DefaultContainer>
-    )
-    expect(screen.getByRole('img')).toHaveClass('anticon-arrow-left')
   })
 })
