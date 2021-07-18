@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> should render footer default 1`] = `
+.c0 {
+  background-color: transparent;
+  text-align: center;
+}
+
+<footer
+  class="ant-layout-footer c0"
+>
+  <span
+    class="ant-typography "
+  >
+    © 
+  </span>
+  <span
+    class="ant-typography "
+  >
+    <strong>
+      Grupo Boticário
+    </strong>
+  </span>
+  <span
+    class="ant-typography "
+  >
+     | 
+    2021
+  </span>
+</footer>
+`
