@@ -1,0 +1,24 @@
+{
+  "icons": [
+    {
+      "src": "img/logo-grupo-boticario-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/logo-grupo-boticario-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "name": "Grupo Boticário",
+  "short_name": "Grupo Boticário",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": "/",
+  "description": "Grupo Boticário",
+  "theme_color": "#000000",
+  "background_color": "#000000"
+}

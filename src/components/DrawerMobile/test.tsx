@@ -8,7 +8,7 @@ describe('<DrawerMobile />', () => {
   const menu = mockItems
   it('should render drawer mobile default', async () => {
     const { container } = render(
-      <DrawerMobile visible={true}>
+      <DrawerMobile visible={true} username={'Christian'}>
         <Menu menu={menu} data-testid={'menu-id'} />
       </DrawerMobile>
     )
