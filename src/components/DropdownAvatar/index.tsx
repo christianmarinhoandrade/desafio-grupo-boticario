@@ -11,9 +11,11 @@ const DropdownAvatar = ({
   ...props
 }: DropdownAvatarProps) => {
   const userMenu = (
-    <Menu>
+    <Menu data-testid="menu-id">
       <Menu.ItemGroup title={`Ola ${username}`}>
         <Menu.Item
+          data-testid="menu-item-id"
+          key={'exit'}
           onClick={() => {
             if (signOut) signOut()
           }}
@@ -26,7 +28,7 @@ const DropdownAvatar = ({
 
   return (
     <S.Dropdown overlay={userMenu} {...props}>
-      <S.Avatar icon={<UserOutlined />} />
+      <S.Avatar icon={<UserOutlined />} {...props} />
     </S.Dropdown>
   )
 }

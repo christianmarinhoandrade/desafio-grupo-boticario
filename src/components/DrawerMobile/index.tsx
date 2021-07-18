@@ -12,7 +12,8 @@ const DrawerMobile = ({
   children,
   setVisible,
   visible,
-  username
+  username,
+  ...props
 }: DrawerMobileProps) => {
   const history = useHistory()
   return (
@@ -29,6 +30,7 @@ const DrawerMobile = ({
         if (setVisible) setVisible(false)
       }}
       visible={visible}
+      {...props}
     >
       {children}
     </Drawer>

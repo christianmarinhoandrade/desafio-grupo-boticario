@@ -33,10 +33,9 @@ describe('<LoginForm />', () => {
 
   it('should render cadastro compras form and be able to call onsubmit', async () => {
     const onSubmit = jest.fn()
-    const { container, debug } = render(
+    const { container } = render(
       <CadastroComprasComponent onSubmit={onSubmit} />
     )
-    debug(container)
     expect(
       container.querySelector('#form-cadastro-compras')
     ).toBeInTheDocument()
@@ -59,7 +58,7 @@ describe('<LoginForm />', () => {
 
     fireEvent.change(valor, {
       target: {
-        value: 'R$0,10'
+        value: '10'
       }
     })
 
@@ -91,5 +90,23 @@ describe('<LoginForm />', () => {
     await waitFor(() => {
       expect(onSubmit).toHaveBeenCalledTimes(0)
     })
+  })
+
+  it('should render cadastro compras form and input value with mask', async () => {
+    const onSubmit = jest.fn()
+    const { container } = render(
+      <CadastroComprasComponent onSubmit={onSubmit} />
+    )
+    expect(
+      container.querySelector('#form-cadastro-compras')
+    ).toBeInTheDocument()
+    const valor = screen.getByPlaceholderText('R$0,00')
+    expect(valor).toBeInTheDocument()
+    fireEvent.change(valor, {
+      target: {
+        value: '10'
+      }
+    })
+    expect(valor.getAttribute('value')).toBe('R$0,10')
   })
 })

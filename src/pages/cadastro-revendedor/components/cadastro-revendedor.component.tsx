@@ -45,7 +45,7 @@ function CadastroRevendedorFormComponent(props: CadastroRevendedorFormProps) {
           <Input placeholder={'Nome Completo'} maxLength={50} />
         </FormItem>
         <FormItem label={'CPF'} name="cpf" rules={requiredRule} width={'100%'}>
-          <MaskedInput placeholder={'CPF'} mask="111.111.11-11" name={'cpf'} />
+          <MaskedInput placeholder={'CPF'} mask="111.111.111-11" name={'cpf'} />
         </FormItem>
         <FormItem
           label={'E-mail'}

@@ -62,7 +62,7 @@ describe('<LoginForm />', () => {
 
     fireEvent.change(cpf, {
       target: {
-        value: '118.968.556-60'
+        value: '123.456.789-11'
       }
     })
 
@@ -99,6 +99,26 @@ describe('<LoginForm />', () => {
     fireEvent.click(button)
     await waitFor(() => {
       expect(onSubmit).toHaveBeenCalledTimes(0)
+    })
+  })
+  it('should render cadastro revendedor form and input value with mask', async () => {
+    const onSubmit = jest.fn()
+    const { container } = render(
+      <CadastroRevendedorComponent onSubmit={onSubmit} />
+    )
+    expect(
+      container.querySelector('#form-cadastro-revendedor')
+    ).toBeInTheDocument()
+    const cpf = screen.getByPlaceholderText('CPF')
+    expect(cpf).toBeInTheDocument()
+    fireEvent.change(cpf, {
+      target: {
+        value: '12345678911'
+      }
+    })
+
+    await waitFor(() => {
+      expect(cpf.getAttribute('value')).toBe('123.456.789-11')
     })
   })
 })
