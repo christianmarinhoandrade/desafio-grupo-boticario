@@ -91,7 +91,11 @@ function DefaultContainer({ list, children, isDesktop }: DefaultProps) {
 
   return (
     <StyledLayout>
-      <DrawerMobile setVisible={setVisible} visible={visible}>
+      <DrawerMobile
+        setVisible={setVisible}
+        visible={visible}
+        username={auth.user?.username.toUpperCase()}
+      >
         <Menu
           menu={menu}
           signOut={auth.signOut!}

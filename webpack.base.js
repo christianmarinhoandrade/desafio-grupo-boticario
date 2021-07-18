@@ -2,6 +2,8 @@ const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
+
 const primayColor = '#303A3C'
 const secondaryColor = '#F5821F'
 module.exports = {
@@ -66,6 +68,14 @@ module.exports = {
       favicon: './public/favicon.ico',
       inject: true
     }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new CopyPlugin({
+      patterns: [
+        { from: 'public/manifest.json', to: '' },
+        { from: 'public/offline.html', to: '' },
+        { from: 'public/serviceworker.js', to: '' },
+        { from: 'public/img', to: '/img' }
+      ]
+    })
   ]
 }
