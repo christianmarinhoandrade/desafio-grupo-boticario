@@ -2,7 +2,7 @@ import CadastroRevendedorFormComponent, {
   CadastroRevendedorForm
 } from '../components/cadastro-revendedor.component'
 import { Form } from 'antd'
-import api from '../revendedor.services'
+import api from '../cadastro-revendedor.services'
 import notification from '~/components/Notification'
 
 function CadastroRevendedorContainer() {

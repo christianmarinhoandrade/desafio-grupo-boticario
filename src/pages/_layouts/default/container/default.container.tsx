@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
 import { Grid } from 'antd'
-import { ArrowLeftOutlined } from '@ant-design/icons'
 
 import Logo from '~/components/Logo'
 import Footer from '~/components/Footer'
@@ -19,23 +18,16 @@ import {
   StyledLayout,
   StyledContent,
   StyledContentWrapper,
-  StyledTitle,
   StyledActionsBarContent
 } from '../default.styles'
 
 type DefaultProps = {
-  routeBack?: string
-  title?: string
   children: JSX.Element
+  list?: boolean
   isDesktop?: boolean
 }
 
-function DefaultContainer({
-  routeBack,
-  title,
-  children,
-  isDesktop
-}: DefaultProps) {
+function DefaultContainer({ list, children, isDesktop }: DefaultProps) {
   const auth = useAuth()
 
   const { useBreakpoint } = Grid
@@ -59,6 +51,16 @@ function DefaultContainer({
   const history = useHistory()
   /* MENU */
   const menu = [
+    {
+      title: 'Lista de Compras',
+      path: '/compras-list',
+      name: 'compras.list'
+    },
+    {
+      title: 'Cadastro Compras',
+      path: '/cadastro-compras',
+      name: 'cadastro.compras'
+    },
     {
       title: 'Cadastro Revendedor',
       path: '/cadastro-revendedor',
@@ -105,7 +107,7 @@ function DefaultContainer({
               <Logo
                 width={90}
                 cursor={'pointer'}
-                onClick={() => history.push('/home')}
+                onClick={() => history.push('/compras-list')}
               />
               <Menu
                 menu={menu}
@@ -121,14 +123,7 @@ function DefaultContainer({
       </Header>
 
       <StyledContent>
-        <StyledContentWrapper>
-          {mobile && routeBack && (
-            <ArrowLeftOutlined
-              style={{ fontSize: '20px' }}
-              onClick={() => history.push(routeBack)}
-            />
-          )}
-          <StyledTitle level={4}>{title}</StyledTitle>
+        <StyledContentWrapper backgroundcolor={list ? '#f0f2f5' : '#fff'}>
           {children}
         </StyledContentWrapper>
       </StyledContent>
